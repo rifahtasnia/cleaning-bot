@@ -2,7 +2,7 @@
 (:domain CleaningBot)
 (:objects
 	dumptile-1-1 dumptile-1-2 dumptile-1-3 dumptile-2-1 dumptile-2-2 dumptile-2-3 - dirtTiles ; Tiles of dump area
-	housetile-1 housetile-2 housetile-3 housetile-4 housetile-5 - houseTiles ; Tiles of house area
+	housetile-1 housetile-2 housetile-3 housetile-4 housetile-5 housetile-6 - houseTiles ; Tiles of house area
 	cleanBot - robot
 	plastic glass organic - dirt ; dirt objects 
 	houseSurface - house_surface
@@ -62,6 +62,8 @@
     (connected housetile-5 housetile-3)
 	(connected housetile-4 housetile-5) 
     (connected housetile-5 housetile-4) 
+    (connected housetile-5 housetile-6) 
+    (connected housetile-6 housetile-5) 
      
     ; House area is connected with dump area through these two tiles.
 	(connected dumptile-2-3 housetile-5) 
@@ -79,6 +81,7 @@
 	(clear housetile-3)
 	(clear housetile-4) 
 	(clear housetile-5) 
+	(clear housetile-6) 
 
 	(at cleanBot dumptile-1-3) ; initial position of cleanBot
 	(available cleanBot) ; cleanBot is available
