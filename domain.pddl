@@ -12,10 +12,10 @@
 	     (on ?d - dirt ?s - (either dirtTiles houseTiles)) 
 	     (connected ?a1 ?a2 - area)) 
 
-;With this action the robot will grab the dirt from the house tile. 
-;Precondition of grabbing a dirt object is that the bot's hand needs to be available and 
-;the bot needs to be on any tile that is directly connected to the tile where dirt is present.
-;effect will be that robot's hand will become unavailable
+; With this action the robot will grab the dirt from the house tile. 
+; Precondition of grabbing a dirt object is that the bot's hand needs to be available and 
+; the bot needs to be on any tile that is directly connected to the tile where dirt is present.
+; Effect will be that robot's hand will become unavailable, dirt will no longer on the housetile.
 (:action grab
  :parameters (?r - robot ?d - dirt ?a1 - houseTiles ?a2 - area ?p - place)
  :precondition (and (connected ?a1 ?a2) (at ?r ?a2) (available ?r) 
@@ -26,7 +26,7 @@
 
 ; With this action the robot will drop the dirt into the dustbins according to the nature of the dirt. 
 ; Precondition of dropping a dirt object is that the bot needs to be on any tile that is directly connected to the tile where the particular dustbin is present.	
-; Effect will be that the robot's hand will be available after dropping the object.			
+; Effect will be that the robot's hand will be available after dropping the object and object will be inside the particular dustbin.			
 (:action drop
  :parameters (?r - robot ?d - dirt ?a1 - dirtTiles ?a2 - area ?p - place)
  :precondition (and (connected ?a1 ?a2) (at ?r ?a2) (grabing ?r ?d) 
